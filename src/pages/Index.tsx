@@ -21,14 +21,22 @@ const Index = () => {
           ॐ Sri Venkateshay namaha ॐ
         </div>
 
+          {/* GLOBAL MANDALA WATERMARK (visible across all sections) */}
+        <img
+          src={mandalaWatermark}
+          alt=""
+          aria-hidden="true"
+          className="
+            mandala-watermark
+            pointer-events-none select-none
+            fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+            w-[1000px] h-[1000px] md:w-[1200px] md:h-[1200px]
+            z-[60]
+          "
+        />
+
         {/* Hero Section */}
         <section className="relative py-20 md:py-32 px-4 overflow-hidden">
-          <img 
-            src={mandalaWatermark} 
-            alt="" 
-            aria-hidden="true"
-            className="mandala-watermark top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px]"
-          />
           
           {/* Ornate corner decorations */}
           <div className="absolute top-8 left-8 text-gold text-6xl opacity-20 hidden lg:block">✦</div>

@@ -109,8 +109,19 @@ const Index = () => {
               </h2>
               <p className="text-muted-foreground mt-3 text-lg">Until we celebrate together</p>
             </div>
-            <CountdownTimer />
+
+            {/* NEW: responsive wrapper for the timer (scales on small screens) */}
+            {/* Responsive wrapper for the timer (no component edits) */}
+          <div className="w-full">
+            <div className="flex justify-center overflow-x-auto sm:overflow-visible -mx-4 px-4">
+              {/* Prevent shrink, scale down progressively on small widths, full size from md */}
+              <div className="min-w-max origin-center max-[360px]:scale-[0.70] max-[400px]:scale-[0.78] max-[460px]:scale-[0.86] sm:scale-95 md:scale-100">
+                <CountdownTimer />
+              </div>
+            </div>
           </div>
+        </div>          
+
         </section>
 
         <GoldDivider />
@@ -127,13 +138,15 @@ const Index = () => {
             <Card className="p-10 md:p-16 shadow-2xl elegant-border bg-white/90 backdrop-blur-sm">
               <div className="space-y-10 text-center">
                 <div className="space-y-4">
-                  <div className="flex items-center justify-center gap-3 text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
+                  {/* UPDATED: mobile-friendly date row */}
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3 text-xs sm:text-sm uppercase tracking-[0.12em] sm:tracking-[0.3em] text-muted-foreground mb-4 text-center">
                     <span>Monday</span>
-                    <span className="text-gold">◆</span>
+                    <span className="hidden sm:inline text-gold">◆</span>
                     <span>December 8</span>
-                    <span className="text-gold">◆</span>
+                    <span className="hidden sm:inline text-gold">◆</span>
                     <span>8 AM</span>
                   </div>
+
                   <p className="text-4xl md:text-5xl font-bold text-navy gold-text-shadow">December 8, 2025</p>
                   <p className="text-2xl md:text-3xl text-gold font-semibold mt-4">8:00 AM IST</p>
                 </div>

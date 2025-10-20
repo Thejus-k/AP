@@ -36,26 +36,26 @@ const CountdownTimer = () => {
   }, []);
 
   return (
-    <div className="flex gap-4 md:gap-8 justify-center items-center">
+    <div className="flex gap-3 md:gap-12 justify-center items-center">
       {[
         { value: timeLeft.days, label: 'Days' },
         { value: timeLeft.hours, label: 'Hours' },
         { value: timeLeft.minutes, label: 'Minutes' },
         { value: timeLeft.seconds, label: 'Seconds' }
       ].map((item, index) => (
-        <div key={item.label} className="flex items-center gap-4 md:gap-8">
-          <div className="flex flex-col items-center">
-            <div className="bg-card rounded-lg p-3 md:p-6 shadow-lg border border-gold/20 min-w-[60px] md:min-w-[100px]">
-              <span className="text-2xl md:text-5xl font-bold text-navy">
+        <div key={item.label} className="flex items-center gap-3 md:gap-12">
+          <div className="flex flex-col items-center fade-up" style={{ animationDelay: `${index * 0.1}s` }}>
+            <div className="elegant-border rounded-2xl p-4 md:p-8 shadow-2xl min-w-[70px] md:min-w-[130px] bg-white/90 backdrop-blur-sm pulse-glow">
+              <span className="text-3xl md:text-6xl font-bold text-navy gold-text-shadow">
                 {String(item.value).padStart(2, '0')}
               </span>
             </div>
-            <span className="text-xs md:text-sm text-muted-foreground mt-2 uppercase tracking-wider">
+            <span className="text-xs md:text-base text-muted-foreground mt-3 uppercase tracking-[0.2em] font-light">
               {item.label}
             </span>
           </div>
           {index < 3 && (
-            <span className="text-gold text-xl md:text-3xl">•</span>
+            <span className="text-gold text-2xl md:text-4xl float">◆</span>
           )}
         </div>
       ))}

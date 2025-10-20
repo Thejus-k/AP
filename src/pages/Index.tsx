@@ -2,7 +2,6 @@ import { Calendar, MapPin, Navigation } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import CountdownTimer from '@/components/CountdownTimer';
-import RSVPForm from '@/components/RSVPForm';
 import GoldDivider from '@/components/GoldDivider';
 import StructuredData from '@/components/StructuredData';
 import { generateCalendarFile } from '@/utils/calendar';
@@ -11,70 +10,106 @@ import mandalaWatermark from '@/assets/mandala-watermark.png';
 const Index = () => {
   const venueAddress = "Gayathri bhavan, 9th Main Road, Siddanna Layout, thyaganagar, Basavanagudi, Bengaluru, 560070";
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venueAddress)}`;
+  const mapsEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7426936254344!2d77.56734687507565!3d12.927910887375853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15d1f8a5c7f7%3A0x8f5d5c8c8f5d5c8c!2sBasavanagudi%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin";
 
   return (
     <>
       <StructuredData />
-      <div className="min-h-screen bg-cream">
+      <div className="min-h-screen luxury-gradient">
         {/* Preheader */}
-        <div className="text-center py-3 text-xs md:text-sm text-muted-foreground tracking-widest">
-          Sri Venkateshay namaha
+        <div className="text-center py-4 text-xs md:text-sm text-muted-foreground tracking-[0.3em] font-light">
+          ॐ Sri Venkateshay namaha ॐ
         </div>
 
         {/* Hero Section */}
-        <section className="relative py-16 md:py-24 px-4 overflow-hidden">
+        <section className="relative py-20 md:py-32 px-4 overflow-hidden">
           <img 
             src={mandalaWatermark} 
             alt="" 
             aria-hidden="true"
-            className="mandala-watermark top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]"
+            className="mandala-watermark top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px]"
           />
           
-          <div className="container mx-auto max-w-4xl relative z-10 text-center fade-up">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-navy mb-8 leading-tight">
-              Anusha Kalyani<br />
-              <span className="text-gold">&</span><br />
-              Pavan Kumar
-            </h1>
+          {/* Ornate corner decorations */}
+          <div className="absolute top-8 left-8 text-gold text-6xl opacity-20 hidden lg:block">✦</div>
+          <div className="absolute top-8 right-8 text-gold text-6xl opacity-20 hidden lg:block">✦</div>
+          <div className="absolute bottom-8 left-8 text-gold text-6xl opacity-20 hidden lg:block">✦</div>
+          <div className="absolute bottom-8 right-8 text-gold text-6xl opacity-20 hidden lg:block">✦</div>
+          
+          <div className="container mx-auto max-w-5xl relative z-10 text-center">
+            <div className="fade-up space-y-8">
+              <div className="inline-block px-8 py-3 border-2 border-gold/30 rounded-full mb-6">
+                <p className="text-sm tracking-[0.2em] text-gold uppercase">Save the Date</p>
+              </div>
+              
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-navy mb-4 leading-[0.9] gold-text-shadow">
+                Anusha Kalyani
+              </h1>
+              
+              <div className="flex items-center justify-center gap-6 my-8">
+                <div className="h-px w-20 bg-gradient-to-r from-transparent to-gold" />
+                <span className="text-5xl md:text-6xl text-gold float">✦</span>
+                <div className="h-px w-20 bg-gradient-to-l from-transparent to-gold" />
+              </div>
+              
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-navy leading-[0.9] gold-text-shadow">
+                Pavan Kumar
+              </h1>
+            </div>
             
-            <div className="space-y-2 text-ink/80 text-base md:text-lg mb-12">
-              <p>We, K B Ramesh and Suman B H,</p>
-              <p>invite you to our daughter's engagement.</p>
+            <div className="space-y-3 text-ink/70 text-lg md:text-xl mt-16 mb-12 fade-up" style={{ animationDelay: '0.2s' }}>
+              <p className="font-light">Together with their families</p>
+              <p className="font-semibold text-navy">K B Ramesh & Suman B H</p>
+              <p className="font-light">request the honor of your presence at the engagement ceremony</p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12 fade-up" style={{ animationDelay: '0.4s' }}>
               <Button 
                 size="lg"
-                className="bg-navy hover:bg-navy/90 text-cream px-8"
-                onClick={() => document.getElementById('rsvp')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                RSVP Now
-              </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-gold text-navy hover:bg-gold/10 px-8"
+                className="bg-navy hover:bg-navy/90 text-cream px-12 py-6 text-lg pulse-glow shadow-2xl"
                 onClick={generateCalendarFile}
               >
                 <Calendar className="mr-2 h-5 w-5" />
                 Add to Calendar
               </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                className="border-2 border-gold text-navy hover:bg-gold/10 px-12 py-6 text-lg elegant-border"
+                onClick={() => window.open(googleMapsUrl, '_blank')}
+              >
+                <MapPin className="mr-2 h-5 w-5" />
+                View Location
+              </Button>
             </div>
           </div>
 
-          {/* Side decorative rails */}
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold to-transparent hidden md:block ml-8" />
-          <div className="absolute right-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold to-transparent hidden md:block mr-8" />
+          {/* Side decorative rails with diamonds */}
+          <div className="absolute left-0 top-0 bottom-0 hidden md:flex flex-col items-center justify-around ml-6">
+            <div className="h-full w-px bg-gradient-to-b from-transparent via-gold/50 to-transparent" />
+            <div className="absolute top-1/4 text-gold text-xl">◆</div>
+            <div className="absolute top-1/2 text-gold text-xl">◆</div>
+            <div className="absolute top-3/4 text-gold text-xl">◆</div>
+          </div>
+          <div className="absolute right-0 top-0 bottom-0 hidden md:flex flex-col items-center justify-around mr-6">
+            <div className="h-full w-px bg-gradient-to-b from-transparent via-gold/50 to-transparent" />
+            <div className="absolute top-1/4 text-gold text-xl">◆</div>
+            <div className="absolute top-1/2 text-gold text-xl">◆</div>
+            <div className="absolute top-3/4 text-gold text-xl">◆</div>
+          </div>
         </section>
 
         <GoldDivider />
 
         {/* Countdown Timer */}
-        <section className="py-12 px-4">
-          <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl md:text-4xl text-center text-navy mb-8 font-bold">
-              Counting Down
-            </h2>
+        <section className="py-16 px-4 bg-white/30 backdrop-blur-sm">
+          <div className="container mx-auto max-w-4xl fade-up">
+            <div className="text-center mb-12 ornate-border py-8">
+              <h2 className="text-4xl md:text-5xl text-navy font-bold gold-text-shadow">
+                Counting Every Moment
+              </h2>
+              <p className="text-muted-foreground mt-3 text-lg">Until we celebrate together</p>
+            </div>
             <CountdownTimer />
           </div>
         </section>
@@ -82,47 +117,60 @@ const Index = () => {
         <GoldDivider />
 
         {/* Event Details */}
-        <section className="py-16 px-4 bg-white/50" id="details">
-          <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl md:text-5xl text-center text-navy mb-12 font-bold">
-              Event Details
-            </h2>
+        <section className="py-20 px-4" id="details">
+          <div className="container mx-auto max-w-5xl fade-up">
+            <div className="text-center mb-16 ornate-border py-8">
+              <h2 className="text-4xl md:text-6xl text-navy font-bold gold-text-shadow">
+                Celebration Details
+              </h2>
+            </div>
             
-            <Card className="p-8 md:p-12 shadow-xl border-gold/30">
-              <div className="space-y-6 text-center">
-                <div>
-                  <p className="text-sm uppercase tracking-widest text-muted-foreground mb-2">
-                    Monday <span className="text-gold mx-2">•</span> December <span className="text-gold mx-2">•</span> 8 <span className="text-gold mx-2">•</span> 8 AM
-                  </p>
-                  <p className="text-2xl md:text-3xl font-bold text-navy">December 8, 2025</p>
-                  <p className="text-xl text-gold mt-2">8:00 AM IST</p>
+            <Card className="p-10 md:p-16 shadow-2xl elegant-border bg-white/90 backdrop-blur-sm">
+              <div className="space-y-10 text-center">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-center gap-3 text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
+                    <span>Monday</span>
+                    <span className="text-gold">◆</span>
+                    <span>December</span>
+                    <span className="text-gold">◆</span>
+                    <span>8</span>
+                    <span className="text-gold">◆</span>
+                    <span>8 AM</span>
+                  </div>
+                  <p className="text-4xl md:text-5xl font-bold text-navy gold-text-shadow">December 8, 2025</p>
+                  <p className="text-2xl md:text-3xl text-gold font-semibold mt-4">8:00 AM IST</p>
                 </div>
 
-                <div className="h-px w-32 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-8" />
+                <div className="flex items-center justify-center gap-4 my-10">
+                  <div className="h-px w-24 bg-gradient-to-r from-transparent via-gold to-gold" />
+                  <span className="text-gold text-2xl">✦</span>
+                  <div className="h-px w-24 bg-gradient-to-l from-transparent via-gold to-gold" />
+                </div>
 
-                <div>
-                  <p className="text-lg md:text-xl font-semibold text-navy mb-2">Gayathri Bhavan</p>
-                  <p className="text-muted-foreground max-w-md mx-auto">
+                <div className="space-y-3">
+                  <p className="text-2xl md:text-3xl font-bold text-navy">Gayathri Bhavan</p>
+                  <p className="text-lg text-muted-foreground max-w-lg mx-auto leading-relaxed">
                     9th Main Road, Siddanna Layout, Thyaganagar<br />
-                    Basavanagudi, Bengaluru, 560070
+                    Basavanagudi, Bengaluru, Karnataka 560070
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
                   <Button 
-                    variant="outline"
-                    className="border-navy text-navy hover:bg-navy/5"
+                    size="lg"
+                    className="bg-navy hover:bg-navy/90 text-cream px-10 py-6 text-base shadow-xl"
                     onClick={() => window.open(googleMapsUrl, '_blank')}
                   >
-                    <MapPin className="mr-2 h-4 w-4" />
+                    <MapPin className="mr-2 h-5 w-5" />
                     Open in Maps
                   </Button>
                   <Button 
+                    size="lg"
                     variant="outline"
-                    className="border-navy text-navy hover:bg-navy/5"
+                    className="border-2 border-gold text-navy hover:bg-gold/10 px-10 py-6 text-base"
                     onClick={() => window.open(googleMapsUrl, '_blank')}
                   >
-                    <Navigation className="mr-2 h-4 w-4" />
+                    <Navigation className="mr-2 h-5 w-5" />
                     Get Directions
                   </Button>
                 </div>
@@ -133,159 +181,84 @@ const Index = () => {
 
         <GoldDivider />
 
+        {/* Google Maps Location */}
+        <section className="py-20 px-4 bg-white/30 backdrop-blur-sm">
+          <div className="container mx-auto max-w-6xl fade-up">
+            <div className="text-center mb-12 ornate-border py-8">
+              <h2 className="text-4xl md:text-6xl text-navy font-bold gold-text-shadow mb-4">
+                Find Us Here
+              </h2>
+              <p className="text-muted-foreground text-lg">Gayathri Bhavan, Basavanagudi, Bengaluru</p>
+            </div>
+            
+            <div className="elegant-border rounded-2xl overflow-hidden shadow-2xl">
+              <iframe
+                src={mapsEmbedUrl}
+                width="100%"
+                height="500"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Venue Location - Gayathri Bhavan"
+                className="w-full"
+              />
+            </div>
+          </div>
+        </section>
+
+        <GoldDivider />
+
         {/* Our Story */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto max-w-3xl">
-            <h2 className="text-3xl md:text-5xl text-center text-navy mb-8 font-bold">
-              Our Story
-            </h2>
-            <p className="text-center text-muted-foreground text-lg leading-relaxed">
-              Two hearts, two families, coming together in a beautiful union. Anusha and Pavan's journey 
-              began with friendship and blossomed into a love that will last a lifetime. We are overjoyed 
-              to celebrate this special milestone with our family and friends.
-            </p>
-          </div>
-        </section>
-
-        <GoldDivider />
-
-        {/* Schedule */}
-        <section className="py-16 px-4 bg-white/50">
-          <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl md:text-5xl text-center text-navy mb-12 font-bold">
-              Schedule
-            </h2>
-            
-            <div className="space-y-6 max-w-2xl mx-auto">
-              {[
-                { time: '8:00 AM', event: 'Guest Arrival & Welcome' },
-                { time: '8:30 AM', event: 'Engagement Ceremony' },
-                { time: '9:30 AM', event: 'Blessings & Photography' },
-                { time: '10:30 AM', event: 'Breakfast & Celebration' }
-              ].map((item, index) => (
-                <div 
-                  key={index}
-                  className="flex items-center gap-6 p-6 bg-card rounded-lg border border-gold/20 shadow-md hover:shadow-lg transition-shadow"
-                >
-                  <div className="flex-shrink-0">
-                    <div className="w-3 h-3 bg-gold rounded-full" />
-                  </div>
-                  <div className="flex-grow">
-                    <p className="text-sm text-gold font-semibold">{item.time}</p>
-                    <p className="text-lg text-navy">{item.event}</p>
-                  </div>
-                </div>
-              ))}
+        <section className="py-20 px-4">
+          <div className="container mx-auto max-w-4xl fade-up">
+            <div className="text-center mb-12 ornate-border py-8">
+              <h2 className="text-4xl md:text-6xl text-navy font-bold gold-text-shadow">
+                Our Journey
+              </h2>
             </div>
-          </div>
-        </section>
-
-        <GoldDivider />
-
-        {/* Gallery Placeholder */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl md:text-5xl text-center text-navy mb-12 font-bold">
-              Gallery
-            </h2>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {Array.from({ length: 8 }).map((_, i) => (
-                <div 
-                  key={i}
-                  className="aspect-square bg-gradient-to-br from-cream to-muted rounded-lg border border-gold/20 flex items-center justify-center"
-                >
-                  <p className="text-muted-foreground text-sm">Photo {i + 1}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <GoldDivider />
-
-        {/* FAQ */}
-        <section className="py-16 px-4 bg-white/50">
-          <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl md:text-5xl text-center text-navy mb-12 font-bold">
-              Frequently Asked Questions
-            </h2>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="p-6 shadow-lg border-gold/20">
-                <h3 className="text-xl font-bold text-navy mb-3">Dress Code</h3>
-                <p className="text-muted-foreground">
-                  Traditional Indian attire is recommended. Please feel comfortable in elegant ethnic wear.
-                </p>
-              </Card>
+            <Card className="p-10 md:p-16 shadow-2xl elegant-border bg-white/90 backdrop-blur-sm">
+              <p className="text-center text-muted-foreground text-xl md:text-2xl leading-relaxed font-light">
+                Two hearts, two families, coming together in a beautiful union blessed by tradition and love. 
+                Anusha and Pavan's journey began with friendship and blossomed into a bond that will last a lifetime. 
+                We are overjoyed to celebrate this sacred milestone surrounded by the warmth and blessings of our 
+                cherished family and friends.
+              </p>
               
-              <Card className="p-6 shadow-lg border-gold/20">
-                <h3 className="text-xl font-bold text-navy mb-3">Parking</h3>
-                <p className="text-muted-foreground">
-                  Ample parking space is available at the venue. Valet service will be provided for your convenience.
-                </p>
-              </Card>
-              
-              <Card className="p-6 shadow-lg border-gold/20">
-                <h3 className="text-xl font-bold text-navy mb-3">Contact</h3>
-                <p className="text-muted-foreground">
-                  For any queries, please reach out to the family. Contact details available upon RSVP.
-                </p>
-              </Card>
-              
-              <Card className="p-6 shadow-lg border-gold/20">
-                <h3 className="text-xl font-bold text-navy mb-3">Gifts</h3>
-                <p className="text-muted-foreground">
-                  Your presence is the greatest gift. However, blessings and good wishes are always cherished.
-                </p>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        <GoldDivider />
-
-        {/* RSVP Form */}
-        <section className="py-16 px-4 relative" id="rsvp">
-          <img 
-            src={mandalaWatermark} 
-            alt="" 
-            aria-hidden="true"
-            className="mandala-watermark top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px]"
-          />
-          
-          <div className="container mx-auto max-w-4xl relative z-10">
-            <h2 className="text-3xl md:text-5xl text-center text-navy mb-4 font-bold">
-              RSVP
-            </h2>
-            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-              Please let us know if you can join us for this special celebration. 
-              We look forward to celebrating with you!
-            </p>
-            
-            <Card className="p-8 md:p-12 shadow-xl border-gold/30">
-              <RSVPForm />
+              <div className="flex justify-center mt-12">
+                <div className="text-gold text-4xl">✦ ◆ ✦</div>
+              </div>
             </Card>
           </div>
         </section>
 
         {/* Footer */}
-        <footer className="py-12 px-4 bg-navy text-cream">
-          <div className="container mx-auto max-w-4xl text-center space-y-6">
-            <div className="flex justify-center">
-              <div className="w-20 h-20 rounded-full border-2 border-gold flex items-center justify-center">
-                <span className="text-2xl font-bold">A ♥ P</span>
+        <footer className="py-16 px-4 bg-navy text-cream mt-20">
+          <div className="container mx-auto max-w-4xl text-center space-y-8">
+            <div className="flex justify-center float">
+              <div className="w-28 h-28 rounded-full border-4 border-gold flex items-center justify-center pulse-glow shadow-2xl bg-navy">
+                <span className="text-3xl font-bold tracking-wide">A ♥ P</span>
               </div>
             </div>
             
-            <p className="text-sm text-cream/70">
-              December 8, 2025 • Bengaluru, India
-            </p>
+            <div className="space-y-2">
+              <p className="text-lg text-cream/90 tracking-wide">
+                December 8, 2025
+              </p>
+              <p className="text-sm text-cream/70">
+                Basavanagudi, Bengaluru, India
+              </p>
+            </div>
             
-            <div className="h-px w-32 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto" />
+            <div className="flex items-center justify-center gap-4">
+              <div className="h-px w-24 bg-gradient-to-r from-transparent to-gold/50" />
+              <span className="text-gold text-xl">◆</span>
+              <div className="h-px w-24 bg-gradient-to-l from-transparent to-gold/50" />
+            </div>
             
-            <p className="text-xs text-cream/50">
-              © 2025 Anusha & Pavan. With love and gratitude.
+            <p className="text-xs text-cream/40 tracking-wider">
+              © 2025 • Created with love and blessings
             </p>
           </div>
         </footer>

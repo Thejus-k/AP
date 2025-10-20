@@ -9,8 +9,8 @@ import mandalaWatermark from '@/assets/mandala-watermark.png';
 
 const Index = () => {
   const venueAddress = "Gayathri bhavan, 9th Main Road, Siddanna Layout, thyaganagar, Basavanagudi, Bengaluru, 560070";
-  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venueAddress)}`;
-  const mapsEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7426936254344!2d77.56734687507565!3d12.927910887375853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15d1f8a5c7f7%3A0x8f5d5c8c8f5d5c8c!2sBasavanagudi%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin";
+  const googleMapsUrl = `https://maps.app.goo.gl/bcTLzKymu257Zyey8`;
+  const mapsEmbedUrl = `https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7777.351220596262!2d77.5613984!3d12.9285587!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1585d1aedfbb%3A0xea99b0db5361ca23!2sGayathri%20Bhavan%2C%209th%20Main%20Rd%2C%20Siddanna%20Layout%2C%20Thyagaraja%20Nagar%2C%20Basavanagudi%2C%20Bengaluru%2C%20Karnataka%20560070!5e0!3m2!1sen!2sin!4v1760975920225!5m2!1sen!2sin`;
 
   return (
     <>
@@ -58,8 +58,7 @@ const Index = () => {
             </div>
             
             <div className="space-y-3 text-ink/70 text-lg md:text-xl mt-16 mb-12 fade-up" style={{ animationDelay: '0.2s' }}>
-              <p className="font-light">Together with their families</p>
-              <p className="font-semibold text-navy">K B Ramesh & Suman B H</p>
+              <p className="font-light">Together with our families, we</p>
               <p className="font-light">request the honor of your presence at the engagement ceremony</p>
             </div>
 
@@ -131,9 +130,7 @@ const Index = () => {
                   <div className="flex items-center justify-center gap-3 text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
                     <span>Monday</span>
                     <span className="text-gold">◆</span>
-                    <span>December</span>
-                    <span className="text-gold">◆</span>
-                    <span>8</span>
+                    <span>December 8</span>
                     <span className="text-gold">◆</span>
                     <span>8 AM</span>
                   </div>
